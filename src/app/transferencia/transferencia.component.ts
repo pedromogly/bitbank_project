@@ -12,8 +12,12 @@ export class TransferenciaComponent {
 
   @Output() aoEnviar = new EventEmitter<any>();
 
+
   valor: number = 11111;
   conta: number = 111;
+  tipo: string;
+
+
 
   enviar() {
     console.log('Transferiu Macaco');
@@ -24,7 +28,8 @@ export class TransferenciaComponent {
     //this.aoEnviar.emit({valor: this.valor, conta: this.conta});
 
     //passar valor no Output aoEnviar usando uma variavel valorEmitir
-    const valorEmitir = { valor: this.valor, conta: this.conta };
+    const valorEmitir = { valor: this.valor, conta: this.conta, tipo: this.tipo };
     this.aoEnviar.emit(valorEmitir);
+
   }
 }
