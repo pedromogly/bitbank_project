@@ -13,10 +13,9 @@ export class TransferenciaComponent {
   @Output() aoEnviar = new EventEmitter<any>();
 
 
-  valor: number = 11111;
-  conta: number = 111;
+  valor: number;
+  conta: number;
   tipo: string;
-
 
 
   enviar() {
@@ -30,6 +29,14 @@ export class TransferenciaComponent {
     //passar valor no Output aoEnviar usando uma variavel valorEmitir
     const valorEmitir = { valor: this.valor, conta: this.conta, tipo: this.tipo };
     this.aoEnviar.emit(valorEmitir);
+    this.limparTransferencia();
+  }
+
+
+  limparTransferencia() {
+    this.valor = 0;
+    this.conta = 0;
+    this.tipo = '0';
 
   }
 }
