@@ -16,7 +16,6 @@ export class AppComponent {
   //Segunda forma, armazenando em uma variavel local
   transferencia: any = {};
 
-
   enviar($event) {
     console.log($event);
   //  this.valor = $event.valor;
@@ -25,6 +24,11 @@ export class AppComponent {
 
     // variavel transferencia recebe o evento (que se 
     //aplica a todos os eventos vindo do parametro do metodo enviar())
+    this.transferencia = $event;
+  }
+
+  exibirModalErro($event) {
+    console.log($event);
     this.transferencia = $event;
   }
 
