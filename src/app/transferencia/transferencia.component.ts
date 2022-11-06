@@ -9,6 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   ],
 })
 
+
+
 export class TransferenciaComponent {
 
   @Output() aoEnviar = new EventEmitter<any>();
@@ -23,18 +25,21 @@ export class TransferenciaComponent {
 
   enviar() {
     console.log('Transferencia Solicitada');
-    
+    this.erroNumerico = 'Digite os Valores Corretamente';
     //código que gera erro ao inserir dados errados.
-    console.log('Validando valores...')
+    console.log('Validando valores...');
     if (this.ehValido()) {
+        this.erroNumerico = 'Sucesso! Reproduzindo Extrato';
+        this.valoresComErro.emit(this.erroNumerico);
         const valorEmitir = { valor: this.valor, conta: this.conta, tipo: this.tipo };
         this.aoEnviar.emit(valorEmitir);
         this.limparTransferencia();
+        this.limparErros();
     }
 
     //console.log('Valor enviado: ', this.valor);
     //console.log('Conta bancaria: ', this.conta);
-    
+
     //passar valor no Output aoEnviar diretamente
     //this.aoEnviar.emit({valor: this.valor, conta: this.conta});
 
@@ -46,7 +51,8 @@ export class TransferenciaComponent {
   private ehValido() {
     const valido = this.valor > 0;
     if (!valido) {
-      this.valoresComErro.emit('Informe um valor válido');
+      console.log('Valor Inválido');
+      this.valoresComErro.emit({erroNumerico: this.erroNumerico});
     }
     return valido;
   }
@@ -56,13 +62,17 @@ export class TransferenciaComponent {
   limparTransferencia() {
     this.valor = 0;
     this.conta = 0;
-    this.tipo = '0';
+    //this.tipo = '0';
+  }
+
+  limparErros() {
+    this.erroNumerico = 'Digite os Valores Corretamente';
   }
 
 
-  
 
-  
+
+
 
 
 

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bitbank';
-  
+
   //Primeira forma de fazer, menos prática
   //  valor: number;
   //  conta: number;
@@ -15,6 +15,8 @@ export class AppComponent {
 
   //Segunda forma, armazenando em uma variavel local
   transferencia: any = {};
+  erro: any = {};
+
 
   enviar($event) {
     console.log($event);
@@ -22,14 +24,14 @@ export class AppComponent {
   //  this.conta = $event.conta;
   //  this.tipo = $event.tipo;
 
-    // variavel transferencia recebe o evento (que se 
+    // variavel transferencia recebe o evento (que se
     //aplica a todos os eventos vindo do parametro do metodo enviar())
     this.transferencia = $event;
   }
 
   exibirModalErro($event) {
     console.log($event);
-    this.transferencia = $event;
+    this.erro = $event;
   }
 
 

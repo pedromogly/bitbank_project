@@ -1,8 +1,10 @@
 <app-transferencia (aoEnviar)="enviar($event)"
     (valoresComErro)="exibirModalErro($event)"></app-transferencia>
 
+<p> {{erro.erroNumerico}} </p>
+
 <p> Conta Bancária: {{transferencia.conta}} </p>
 <p> Valor Transferido: {{transferencia.valor}} </p>
 <p> Tipo de Conta: {{transferencia.tipo}} </p>
 
-<p> {{transferencia.valido}} </p>
+
