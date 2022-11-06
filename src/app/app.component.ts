@@ -14,8 +14,8 @@ export class AppComponent {
   //  tipo: string;
 
   //Segunda forma, armazenando em uma variavel local
-  transferencia: any = {};
-  erro: any = {};
+  transferencias: any[] = []; //tem que inicializar o array de transferencias
+  erro: any = {}; //tem que inicializar o objeto de erro
 
 
   enviar($event) {
@@ -26,7 +26,8 @@ export class AppComponent {
 
     // variavel transferencia recebe o evento (que se
     //aplica a todos os eventos vindo do parametro do metodo enviar())
-    this.transferencia = $event;
+    const transferencia = {...$event, data: new Date()};
+    this.transferencias.push(transferencia);
   }
 
   exibirModalErro($event) {
