@@ -11,6 +11,7 @@ import { ExtratoComponent } from './extrato/extrato.component';
 import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { ErrosComponent } from './erros/erros.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -20,6 +21,7 @@ registerLocaleData(localePt, 'pt');
     TransferenciaComponent,
     AcrossPush,
     ExtratoComponent,
+    ErrosComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,9 @@
 <app-transferencia (aoEnviar)="enviar($event)"
     (valoresComErro)="exibirModalErro($event)"></app-transferencia>
 
-<p> {{erro.erroNumerico}} </p>
-
-
 <app-extrato [transferido]="transferencias"></app-extrato>
+
+<app-erros [erroRequisitado]="erros"></app-erros>
 
 
 

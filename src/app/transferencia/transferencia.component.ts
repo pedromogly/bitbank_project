@@ -16,19 +16,20 @@ export class TransferenciaComponent {
   @Output() aoEnviar = new EventEmitter<any>();
   @Output() valoresComErro = new EventEmitter<any>(); //eu poderia colocar <any> aqui também
 
-
   valor: number;
   conta: number;
   tipo: string;
   erroNumerico: string;
+  digitoInsuficiente: string;
 
 
   enviar() {
     console.log('Transferencia Solicitada');
     this.erroNumerico = 'Digite os Valores Corretamente';
+    this.digitoInsuficiente = 'Digito de Conta Insuficiente';
     //código que gera erro ao inserir dados errados.
     console.log('Validando valores...');
-    if (this.ehValido()) {
+    if (this.ehValido() && this.digitoSuficiente()) {
         this.erroNumerico = 'Sucesso! Reproduzindo Extrato';
         this.valoresComErro.emit(this.erroNumerico);
         const valorEmitir = { valor: this.valor, conta: this.conta, tipo: this.tipo };
@@ -54,7 +55,18 @@ export class TransferenciaComponent {
       console.log('Valor Inválido');
       this.valoresComErro.emit({erroNumerico: this.erroNumerico});
     }
+
     return valido;
+  }
+  
+  private digitoSuficiente() {
+    const digito = this.conta > 999;
+    if (!digito) {
+      console.log('Digito de Conta Insuficiente');
+      this.valoresComErro.emit({digitoInsuficiente: this.digitoInsuficiente});
+    }
+
+    return digito
   }
 
 
@@ -67,6 +79,7 @@ export class TransferenciaComponent {
 
   limparErros() {
     this.erroNumerico = 'Digite os Valores Corretamente';
+    this.digitoInsuficiente = 'Digito de Conta Insuficiente';
   }
 
 

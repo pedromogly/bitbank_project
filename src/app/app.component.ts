@@ -15,7 +15,7 @@ export class AppComponent {
 
   //Segunda forma, armazenando em uma variavel local
   transferencias: any[] = []; //tem que inicializar o array de transferencias
-  erro: any = {}; //tem que inicializar o objeto de erro
+  erros: any[] = []; //tem que inicializar o objeto de erro
 
 
   enviar($event) {
@@ -32,7 +32,7 @@ export class AppComponent {
 
   exibirModalErro($event) {
     console.log($event);
-    this.erro = $event;
+    this.erros = $event;
   }
 
 
