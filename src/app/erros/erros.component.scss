@@ -1,0 +1,14 @@
+.secao {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: white;
+    z-index: 1;
+    border-radius: 1ch;
+}
+
+.texto-erro {
+    color: rgb(49, 49, 49);
+}
