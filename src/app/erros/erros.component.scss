@@ -1,6 +1,4 @@
 .secao {
-    display: flex;
-    justify-content: center;
     text-align: center;
     margin: 0 auto;
     padding: 1em;
@@ -10,5 +8,6 @@
 }
 
 .texto-erro {
+    margin: 0 auto;
     color: rgb(49, 49, 49);
 }
